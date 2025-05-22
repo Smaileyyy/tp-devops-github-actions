@@ -34,7 +34,7 @@ jobs:
       - name: SonarCloud Analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify sonar:sonar -Dsonar.projectKey=Smaileyyy_tp-devops-github-actions -Dsonar.organization=tpefrei -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} --file ./simple-api/pom.xml
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=Smaileyyy_tp-devops-github-actions -Dsonar.organization=tpefrei -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.qualitygate.wait=true --file ./simple-api/pom.xml
 
   build-docker-images:
     needs: test-backend
