@@ -1,7 +1,7 @@
 - name: Run App container
   community.docker.docker_container:
     name: simple-api
-    image: smaileyyy/tp-devops-simple-api:latest
+    image: smaileyyy/tp-devops-simple-api:{{ image_tag | default('latest') }}
     pull: true
     recreate: true
     force_kill: true
