@@ -1,0 +1,16 @@
+- hosts: all
+  gather_facts: true
+  become: true
+
+  roles:
+    - docker
+    - network
+    - database
+    - app
+    - proxy
+
+  database_host: database
+  database_port: "5432"
+  database_name: db
+  database_user: usr
+  database_password: pwd
