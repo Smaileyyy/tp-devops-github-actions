@@ -1,14 +1,12 @@
-- name: Run HTTPD proxy container
+- name: Run Front container
   community.docker.docker_container:
-    name: my_proxy
-    image: smaileyyy/tp-devops-httpd:{{ image_tag | default('latest') }}
+    name: front
+    image: smaileyyy/tp-devops-front:{{ image_tag | default('latest') }}
     pull: true
     recreate: true
     force_kill: true
     state: started
     restart_policy: always
-    published_ports:
-      - "80:80"
     networks:
       - name: network
   vars:
